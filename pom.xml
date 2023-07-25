@@ -28,6 +28,7 @@
 			<!-- 通过全局属性引用这个mysql的版 本 -->
 			<version>${mysql.version}</version>
 		</dependency>
+
 	</dependencies>
 
 	<build>
