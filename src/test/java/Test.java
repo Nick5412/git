@@ -3,7 +3,7 @@ import org.junit.Before;
 
 /**
  * @author Nick
- * @Classname Test
+ * @Classname StudentBmiMeasure
  * @Date 2023/07/21 20:57
  * @Description TODO
  */

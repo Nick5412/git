@@ -6,9 +6,16 @@
 
 	<groupId>com.nick</groupId>
 	<artifactId>maven</artifactId>
+	<packaging>pom</packaging>
 	<version>1.0-SNAPSHOT</version>
+	<!--	子模块列表-->
+	<modules>
+		<module>selfspring</module>
+		<module>aop1</module>
+		<module>selfproxy</module>
+	</modules>
 
-<!--	全局属性定义-->
+	<!--	全局属性定义-->
 	<properties>
 		<maven.compiler.source>8</maven.compiler.source>
 		<maven.compiler.target>8</maven.compiler.target>
@@ -33,23 +40,47 @@
 			<artifactId>spring-context</artifactId>
 			<version>5.3.26</version>
 		</dependency>
+		<!--		lombok动态生成字节码-->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.28</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+		<!--		log4j2日志-->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.19.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-slf4j2-impl</artifactId>
+			<version>2.19.0</version>
+		</dependency>
 	</dependencies>
+
 
 	<build>
 		<plugins>
 			<!-- maven采用的编译插件的版本, 这里配置它主要是指定 maven-compiler-plugin. 指定项目源码的 jdk 版本，编译后的 jdk 版本，以及编码 -->
 			<!-- 因为默认采用的是jdk1.6 -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.8.1</version>
-				<!--引用全局属性 -->
-				<configuration>
-					<source>${java.version}</source>
-					<target>${java.version}</target>
-					<encoding>UTF-8</encoding>
-				</configuration>
-			</plugin>
+			<!--			<plugin>-->
+			<!--				<groupId>org.apache.maven.plugins</groupId>-->
+			<!--				<artifactId>maven-compiler-plugin</artifactId>-->
+			<!--				<version>3.8.1</version>-->
+			<!--				&lt;!&ndash;引用全局属性 &ndash;&gt;-->
+			<!--				<configuration>-->
+			<!--					<source>${java.version}</source>-->
+			<!--					<target>${java.version}</target>-->
+			<!--					<encoding>UTF-8</encoding>-->
+			<!--				</configuration>-->
+			<!--			</plugin>-->
+
 		</plugins>
 	</build>
 </project>
