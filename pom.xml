@@ -13,6 +13,7 @@
 		<module>selfspring</module>
 		<module>aop1</module>
 		<module>selfproxy</module>
+		<module>txbank</module>
 	</modules>
 
 	<!--	全局属性定义-->
@@ -20,6 +21,7 @@
 		<maven.compiler.source>8</maven.compiler.source>
 		<maven.compiler.target>8</maven.compiler.target>
 		<mysql.version>8.0.33</mysql.version>
+		<spring.version>5.3.26</spring.version>
 	</properties>
 
 	<dependencies>
@@ -29,16 +31,11 @@
 			<version>4.13.2</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>com.mysql</groupId>
-			<artifactId>mysql-connector-j</artifactId>
-			<!-- 通过全局属性引用这个mysql的版 本 -->
-			<version>${mysql.version}</version>
-		</dependency>
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>5.3.26</version>
+			<version>${spring.version}</version>
 		</dependency>
 		<!--		lombok动态生成字节码-->
 		<dependency>
@@ -64,6 +61,37 @@
 		</dependency>
 	</dependencies>
 
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.mysql</groupId>
+				<artifactId>mysql-connector-j</artifactId>
+				<!-- 通过全局属性引用这个mysql的版 本 -->
+				<version>${mysql.version}</version>
+				<scope>runtime</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-test</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-jdbc</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+
+			<!-- https://mvnrepository.com/artifact/com.alibaba/druid -->
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>druid</artifactId>
+				<version>1.2.15</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<build>
 		<plugins>
